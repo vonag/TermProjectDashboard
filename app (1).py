@@ -20,7 +20,7 @@ df["Gap (Boys - Girls)"] = df["Boys"] - df["Girls"]
 countries = sorted(df["Entity"].unique())
 min_year, max_year = int(df["Year"].min()), int(df["Year"].max())
 
-st.title("📚 The Gender Gap in Education, 1990–2023")
+st.title("The Gender Gap in Education, 1990–2023")
 st.markdown("Pick a country and year range, then drag across the top chart to zoom into a time window.")
 
 country = st.sidebar.selectbox("Country", countries)
@@ -58,6 +58,6 @@ gap_chart = alt.Chart(filtered_wide).mark_bar().encode(
 
 # Display
 st.altair_chart(line_chart, use_container_width=True)
-st.caption("🔎 Drag across the chart above to select a time range.")
+st.caption("Drag across the chart above to select a time range.")
 
 st.altair_chart(gap_chart, use_container_width=True)
