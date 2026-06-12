@@ -57,7 +57,8 @@ gap_chart = alt.Chart(filtered_wide).mark_bar().encode(
 ).transform_filter(brush).properties(title="Gender gap in selected window")
 
 # Display
-st.altair_chart(line_chart, use_container_width=True)
+combined_chart = alt.vconcat(line_chart, gap_chart).resolve_scale(
+    color='independent'
+)
+st.altair_chart(combined_chart, use_container_width=True)
 st.caption("Drag across the chart above to select a time range.")
-
-st.altair_chart(gap_chart, use_container_width=True)
