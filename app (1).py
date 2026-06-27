@@ -31,7 +31,7 @@ with st.expander("How to use this dashboard", expanded=True):
 # -----------------------------
 @st.cache_data
 def load_data():
-    df = pd.read_csv("schooling_data.csv")
+    df = pd.read_csv("average-years-of-schooling-among-men-and-women.csv")
     long_df = df.melt(
         id_vars=["Entity", "Code", "Year"],
         value_vars=["Girls", "Boys"],
